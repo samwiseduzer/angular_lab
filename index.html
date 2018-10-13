@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Avatar</title>
+	<link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+	<header>Avatar: The Last Catgifer</header>
+	<div ng-app='app' ng-controller='mainCtrl' class="content">
+		<form name='userForm' ng-submit='addNew(userForm)'>
+			<input placeholder='Name' ng-model='userForm.name' />
+			<input placeholder='Image Url' ng-model='userForm.url' />
+			<input placeholder="Email" ng-model="userForm.email" type="text">
+			<button type='submit'>Add New</button>
+		</form>
+
+		<ul class='User-list'>
+			<!--
+        ng-repeat loops through the users array bound to the scope of mainCtrl and gives
+        us access to the user object in each index so we can reference the user properties
+      -->
+			<ul class='User-list'>
+				<li ng-repeat='user in users'>
+					<avatar user='user' />
+				</li>
+			</ul>
+		</ul>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+	<script src="script.js"></script>
+</body>
+
+</html>
